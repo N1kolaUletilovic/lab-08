@@ -28,7 +28,15 @@ class Wizard(val name: String, var mana: Int, var spellPower: Int) {
 
 
 
-    fun restoreMana(amount: Int) { }
+    fun restoreMana(amount: Int) {
+        mana += amount
+
+        // if mana overshoots 100 cap at 100
+        if(mana > 100)
+        {
+            mana = 100
+        }
+    }
 
 
 }
