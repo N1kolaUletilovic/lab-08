@@ -53,5 +53,57 @@ class WizardTest {
 
 
 
+    @Test
+    fun train_exactlyFiveMana_succeedsAtThresh() {
+
+        // 5
+        evilWizard.mana = 5
+        val initialSpellPower = evilWizard.spellPower
+
+
+
+        evilWizard.train()
+
+        assertEquals(
+
+            initialSpellPower + 1, evilWizard.spellPower
+
+        )
+
+        // should be 0 since 5 - 5 = 0
+        assertEquals(0, evilWizard.mana)
+    }
+
+    @Test
+    fun train_belowThresh_noChng() {
+
+
+        evilWizard.mana = 4
+        val initialSpellPower = evilWizard.spellPower
+
+
+        evilWizard.train()
+
+
+
+
+        assertEquals(
+
+            initialSpellPower, evilWizard.spellPower
+
+
+        )
+
+
+
+        assertEquals(
+            4, evilWizard.mana
+
+        )
+    }
+
+
+
+
 
 }
